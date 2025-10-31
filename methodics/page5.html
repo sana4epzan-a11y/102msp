@@ -1,0 +1,336 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Страница 5 - 102-й Гвардейский Мотострелковый Полк</title>
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            max-width: 100%;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #ffffff;
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        .background-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://media.discordapp.net/attachments/1310399674078859458/1421205583419277422/Garrysmod_Screenshot_2025.09.26_-_21.42.58.94.png?ex=6905ac17&is=69045a97&hm=2a6ab4a8f4ca718466e93cbcf1eb00ec714b685aa22641b70f657f99bb90811a&=&format=webp&quality=lossless&width=1423&height=800');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            z-index: -1;
+        }
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            background-color: rgba(20, 20, 20, 0.95);
+            padding: 15px 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            width: 100%;
+        }
+
+        .nav-container {
+            width: 100%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            padding: 0 20px;
+        }
+
+        .nav-link {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 500;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .nav-link:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: rgba(30, 30, 30, 0.98);
+            min-width: 250px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+            z-index: 1001;
+            top: 100%;
+            left: 0;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            color: #ffffff;
+            padding: 12px 20px;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.3s ease;
+            font-size: 16px;
+        }
+
+        .dropdown-content a:hover {
+            background-color: rgba(255, 255, 255, 0.15);
+        }
+
+        .main-content {
+            position: relative;
+            z-index: 1;
+            min-height: calc(100vh - 200px);
+            padding: 40px 20px;
+            width: 100%;
+            max-width: 100%;
+        }
+
+        .page-content {
+            width: 100%;
+            max-width: 100%;
+            margin: 0 auto;
+            background-color: rgba(20, 20, 20, 0.7);
+            padding: 40px;
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+        }
+
+        .page-content h1 {
+            font-size: 36px;
+            margin-bottom: 30px;
+            text-align: center;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .content-section {
+            color: #e0e0e0;
+            line-height: 1.8;
+            font-size: 18px;
+        }
+
+        .methodics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .methodic-card {
+            background-color: rgba(40, 40, 40, 0.8);
+            padding: 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #ffffff;
+            text-align: center;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: block;
+            cursor: pointer;
+        }
+
+        .methodic-card:hover {
+            background-color: rgba(60, 60, 60, 0.9);
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .footer {
+            position: relative;
+            background-color: #ffffff;
+            color: #000000;
+            padding: 30px 20px;
+            text-align: center;
+            margin-top: 100px;
+            z-index: 10;
+            width: 100%;
+        }
+
+        .footer-text {
+            font-size: 24px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .personnel-page {
+            width: 100%;
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        .personnel-container {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .personnel-card {
+            background-color: rgba(50, 50, 50, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 25px 30px;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .personnel-title {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 18px;
+            color: #ffffff;
+            text-align: left;
+            letter-spacing: 0.5px;
+        }
+
+        .personnel-items {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .personnel-item {
+            color: #e0e0e0;
+            font-size: 15px;
+            line-height: 1.7;
+            font-weight: 400;
+        }
+
+        .personnel-item .position {
+            color: #e0e0e0;
+        }
+
+        .personnel-item .identifier {
+            color: #b19cd9;
+            font-weight: 500;
+        }
+
+        .personnel-item .rank {
+            color: #b19cd9;
+            font-weight: 500;
+        }
+
+        .personnel-item .name {
+            color: #b19cd9;
+            font-weight: 500;
+        }
+
+        .personnel-item .nickname {
+            color: #b19cd9;
+            font-style: italic;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .dropdown-content {
+                position: static;
+                display: none;
+            }
+            
+            .dropdown:hover .dropdown-content {
+                display: block;
+                position: static;
+                margin-top: 10px;
+            }
+            
+            .page-content {
+                padding: 20px;
+            }
+            
+            .page-content h1 {
+                font-size: 28px;
+            }
+            
+            .footer-text {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-image"></div>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-link">Главная</a>
+            <a href="../history.html" class="nav-link">История</a>
+            <div class="dropdown">
+                <a href="../methodics.html" class="nav-link dropdown-toggle">Методички</a>
+                <div class="dropdown-content">
+                    <a href="educational.html">Учебно-методические материалы</a>
+                    <a href="sanitary.html">Санитарная книга</a>
+                    <a href="page3.html">Страница 3</a>
+                    <a href="page4.html">Страница 4</a>
+                    <a href="page5.html">Страница 5</a>
+                    <a href="page6.html">Страница 6</a>
+                    <a href="page7.html">Страница 7</a>
+                    <a href="page8.html">Страница 8</a>
+                </div>
+            </div>
+            <a href="../personnel.html" class="nav-link">Информация военского состава</a>
+        </div>
+    </nav>
+    
+    <main class="main-content">
+        <div class="page-content">
+            <h1>Страница 5</h1>
+            <div class="content-section">
+                <p>Содержимое страница 5 будет размещено здесь.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-text">
+            ИНФОРМАЦИОННАЯ 102-ГО ГВАРДЕЙСКОГО МОТОСТРЕЛКОВОГО ПОЛКА
+        </div>
+    </footer>
+</body>
+</html>
